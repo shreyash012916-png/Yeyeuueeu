@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cutflow
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MAX_UPLOAD_MB
+        value: 500
+      - key: RETENTION_MINUTES
+        value: 180
